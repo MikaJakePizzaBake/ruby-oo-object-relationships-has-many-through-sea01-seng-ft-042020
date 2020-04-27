@@ -19,8 +19,6 @@ def meals
   Meal.all.select {|meal| meal.customer == self}
 end
 def waiters
-  best_tipped_meal = meals.max {|meal_a, meal_b|}
-  meal_a.tip <=> meal_b.tip
+  meals.map {|meal| meal.waiter}
 end
-best_tipped_meal.customer
 end
